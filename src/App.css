@@ -1,0 +1,114 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+#navbar{
+  background-color:rgb(0, 128, 255);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  gap:30px;
+  size: 800px; ;
+  
+}
+#h{
+  text-align: center;
+  font-size: xx-large;
+  color:black;
+  
+}
+#hii{
+  text-align: start;
+}
+#p{
+  text-align: start;
+}
+#h2{
+  font-size:large;
+  color:rgb(97, 14, 97);
+}
+#me{
+  background-color: rgb(48, 214, 48);
+
+}
+#h1{
+  font-size: xx-large;
+  text-align: start;
+}
+#ul{
+  text-align: start;
+}
+#contain{
+  color: rgb(84, 142, 195);
+  font-size: xx-large;
+
+}
+#ok{
+  text-align: start;
+  font-size: xx-large;
+}
+#h4{
+  text-align: start;
+}
+#ol{
+  text-align: start;
+}
+#div{
+  background-image:"/Images/college.jpeg";
+}
+#n{
+  color:white;
+}
+#id{
+  background-image:url("/Images/college.jpeg");
+
+}
+#div{
+  background-color: aqua;
+}
+#we{
+  background-color: white;
+}
+#pa{
+  text-align: center;
+}
