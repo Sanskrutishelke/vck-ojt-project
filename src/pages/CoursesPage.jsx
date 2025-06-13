@@ -8,6 +8,8 @@ const CoursesPage = () => {
             <Header/>
           <div id="root">
             <div id="aqua">
+              <br></br>
+              <div id="container">
            <h1 id="contain">Our Academic Programs</h1> 
            <p id="p">Vivekanand College offers a comprehensive range of undergraduate and postgraduate programs designed to equip students with the knowledge and skills demanded by today's dynamic global landscape. Our curriculum is regularly updated to reflect industry trends and academic advancements.
          </p>
@@ -82,7 +84,8 @@ const CoursesPage = () => {
       <h2 id="ok">Specialized & Vocational Courses</h2><hr></hr>
       <p id="p">In addition to traditional degree programs, we offer various certificate and diploma courses in areas like Digital Marketing, Web Development, Data Analytics, and Soft Skills Development, providing specialized training for career enhancement.</p>
       <div id="text"><p>Have questions about a specific course?</p>
-        <a href="/contactpage"><button id="me">Inquire About Courses</button></a></div>
+        <a href="/contactpage"><button id="me">Inquire About Courses</button></a></div><br></br>
+        </div>
         </div>
         </div>
         <Footer/>

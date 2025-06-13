@@ -7,7 +7,8 @@ const ContactPage = () => {
         <div>
             <Header/>
          <div id="root">
-          <div id="aqua">
+          <div id="aqua"><br></br>
+            <div id="container">
           <h1 id="contain">Contact Us</h1>
       <p id="p">We'd love to hear from you! Whether you have questions about admissions, programs, or campus life, our team is here to help.</p>
       <h2 id="ok">General Enquiries</h2>
@@ -40,7 +41,8 @@ const ContactPage = () => {
       <hr></hr>
         <p id="p">
           [A contact form with fields for Name, Email, Subject, Message can be added here.]
-        </p>
+        </p><br></br>
+        </div>
         </div>
         </div>
         <Footer/>

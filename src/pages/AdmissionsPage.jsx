@@ -5,6 +5,7 @@ const AdmissionsPage = () => {
     return(
         <div className="white">
         <div id="ad">
+            <div id="container"><br></br>
             <h1 id="contain">Admissions at Vivekanand College</h1>
             <p>
               Welcome to the Admissions page of Vivekanand College! We are delighted you're considering joining our vibrant academic community. Our admission process is designed to be straightforward and accessible.
@@ -45,8 +46,9 @@ const AdmissionsPage = () => {
                 <li><b>Merit List & Interview:</b> Check the merit list and attend the interview if shortlisted.</li>
                 <li><b>Fee Payment:</b> Complete the admission by paying the required fees.</li>
             </ol>
-            <p id="p">For detailed information on postgraduate program admissions, specific program syllabi, and fee structures, please visit our <a href="/coursespage">Courses page</a> or <a href="/contactpage">Contact us</a> directly.</p>
+            <p id="p">For detailed information on postgraduate program admissions, specific program syllabi, and fee structures, please visit our <a href="/coursespage">Courses page</a> or <a href="/contactpage">Contact us</a> directly.</p><br></br>
             </div>
+        </div>
         </div>
     )
 }
