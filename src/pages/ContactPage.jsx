@@ -1,12 +1,13 @@
 import React from "react";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 const ContactPage = () => {
     return(
         <div>
-        <nav id="navbar">
-            <h2>Vivekanand College</h2><Header/>
-          </nav>
+            <Header/>
+         <div id="root">
+          <div id="aqua">
           <h1 id="contain">Contact Us</h1>
       <p id="p">We'd love to hear from you! Whether you have questions about admissions, programs, or campus life, our team is here to help.</p>
       <h2 id="ok">General Enquiries</h2>
@@ -40,7 +41,9 @@ const ContactPage = () => {
         <p id="p">
           [A contact form with fields for Name, Email, Subject, Message can be added here.]
         </p>
-
+        </div>
+        </div>
+        <Footer/>
         </div>
     )
 }

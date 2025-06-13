@@ -1,20 +1,77 @@
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
+function Header() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false); 
+  const toggleDrawer = () => {
+    setIsDrawerOpen(!isDrawerOpen);
+  };
 
-const Header = () => {
-    return(
-        <header>
+  const closeDrawer = () => {
+    setIsDrawerOpen(false);
+  };
+  return (
+    <header className="main-header">
+      {" "}
+      <div className="college-name">
+        <Link to="/">Vivekanand College</Link>{" "}
         
-                <nav id="navbar">
-                <Link id="n" to='/homepage'>Home</Link>
-                <Link id="n" to='/admissionpage'></Link>
-                <Link  id="n"to='/aboutpage'>About</Link>
-                <Link  id="n"to='/coursespage'>Courses</Link>
-                <Link  id="n"to='/contactpage'>Contact</Link>
-                <Link to='/admissionpage'><button id="me">Apply Now!</button></Link>
-            
-            </nav>
-        </header>
-    )
+      </div>
+     
+      <nav className="navbar desktop-nav">
+        <Link to="/homepage" className="nav-item">
+          Home
+        </Link>
+        <Link to="/aboutpage" className="nav-item">
+          About
+        </Link>
+        <Link to="/coursespage" className="nav-item">
+          Courses
+        </Link>
+        <Link to="/contactpage" className="nav-item">
+          Contact
+        </Link>
+        <Link to="/admissionpage" className="nav-item btn primary-btn">
+          Apply Now!
+        </Link>{" "}
+       
+      </nav>
+     
+      <button className="hamburger-menu" onClick={toggleDrawer}>
+        <span className="hamburger-icon"></span>
+        <span className="hamburger-icon"></span>
+        <span className="hamburger-icon"></span>
+      </button>
+     
+      <nav className={`drawer-nav ${isDrawerOpen ? "open" : ""}`}>
+        <button className="close-drawer-btn" onClick={toggleDrawer}>
+          ✕
+        </button>
+        <Link to="/" className="nav-item" onClick={closeDrawer}>
+          Home
+        </Link>
+        <Link to="/about" className="nav-item" onClick={closeDrawer}>
+          About
+        </Link>
+        <Link to="/courses" className="nav-item" onClick={closeDrawer}>
+          Courses
+        </Link>
+        <Link to="/contact" className="nav-item" onClick={closeDrawer}>
+          Contact
+        </Link>
+        <Link
+          to="/admissions"
+          className="nav-item btn primary-btn"
+          onClick={closeDrawer}
+        >
+          Apply Now!
+        </Link>
+      </nav>
+    
+      {isDrawerOpen && (
+        <div className="drawer-overlay" onClick={toggleDrawer}></div>
+      )}
+    </header>
+  );
 }
-
-export default Header
+export default Header;
