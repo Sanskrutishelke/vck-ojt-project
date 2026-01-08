@@ -11,7 +11,7 @@ const ChatbotComponent = () => {
   ]);
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const chatMessagesRef = useRef(null);//it is uesd to show new massage at bottom
+  const chatMessagesRef = useRef(null);//new massage come then frist massa.bottom
   const [preparedKnowledgeBase, setPreparedKnowledgeBase] =
     useState(KNOWLEDGE_BASE_DATA);
   const [isKnowledgeBaseLoading, setIsKnowledgeBaseLoading] = useState(true);
@@ -19,23 +19,24 @@ const ChatbotComponent = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   // Preparing the knowledge base data
   useEffect(() => {
-    const prepareKB = async () => {//function define
-      const newKB = JSON.parse(JSON.stringify(KNOWLEDGE_BASE_DATA)); // Create a deep copy of KNOWLEDGE_BASE_DATA
-      for (const intent in newKB) {
+    const prepareKB = async () => {
+      const newKB = JSON.parse(JSON.stringify(KNOWLEDGE_BASE_DATA)); // Create a deep copy of KNOWLEDGE_BASE_DATA ,JSON.stringify-function
+      for (const intent in newKB)// newkb iterate  //deep copy-same 
+        {
         if (newKB[intent].examples && newKB[intent].examples.length > 0) {
           const embeddings = await Promise.all(
             newKB[intent].examples.map((example) => getEmbeddings(example)) // embeddings are vectors that help machines understand meanings
-          );
-          newKB[intent].exampleEmbeddings = embeddings;
-        }//AI is used to return numeric value of text
-      }//json is used for creat deepcopy
-      setPreparedKnowledgeBase(newKB);
-      setIsKnowledgeBaseLoading(false);
+          );//ai use for conversion in numeric values
+          newKB[intent].exampleEmbeddings = embeddings;//in embeddings numeric value store
+        }
+      }
+      setPreparedKnowledgeBase(newKB);//deep copy set
+      setIsKnowledgeBaseLoading(false);//data known now false
     };
-    prepareKB();//function call 
-    //type of useeffect dependency array and emptydependent array
-  }, []);// empty dependency array itreat one time 
-  useEffect(() => { 
+    prepareKB();
+  }, []);//emptydependency array-no dependency one time
+  //dependent array - per change options
+  useEffect(() => {
     if (chatMessagesRef.current) {
       chatMessagesRef.current.scrollTo({
         // Scrools the chat container to a specific position
@@ -43,7 +44,7 @@ const ChatbotComponent = () => {
         behavior: "smooth",
       });
     }
-  }, [messages]);//dependency array
+  }, [messages]);
   const getAIResponse = async (userMessageText) => {
     setLoading(true);
     if (!isOnline) {
@@ -54,14 +55,14 @@ const ChatbotComponent = () => {
       setLoading(false);
       return "Please wait, I'm still getting ready...";
     }
-    try {//try block for succesfull process run
-      const userEmbedding = await getEmbeddings(userMessageText); // we recieve vectors
+    try {//try block-without error code run and catch block-if in error
+      const userEmbedding = await getEmbeddings(userMessageText); // we recieve vectors numeric value
       let bestMatch = { intent: "default", score: 0 };
       for (const intent in preparedKnowledgeBase) {
-        if (intent === "default") continue;//===for strictly match(datatype with value check kart)
+        if (intent === "default") continue;//value is default continue.continue-break code,==value matching data type not check, === strictly match value or data type
         const intentEmbeddings =
           preparedKnowledgeBase[intent].exampleEmbeddings;
-        if (intentEmbeddings.length === 0) continue;
+        if (intentEmbeddings.length === 0) continue;//value is not 0 continue.continue-break code
         for (const exampleEmbedding of intentEmbeddings) {
           const score = cosineSimilarity(userEmbedding, exampleEmbedding);
           if (score > bestMatch.score) {
@@ -77,12 +78,12 @@ const ChatbotComponent = () => {
       } else {
         return preparedKnowledgeBase.default.response;
       }
-    } catch (error) {//cath bolck for dislpay error
+    } catch (error) {
       console.error("Error fetching AI response:", error);
       if (error.message.includes("429")) {
         return "I'm experiencing high traffic right now. Please try again in a moment.";
       }
-      if (error.message.includes("403") || error.message.includes("401")) {//5000 error for internal,404 error for not found,200 error for done
+      if (error.message.includes("403") || error.message.includes("401")) {
         return "There's an issue with my internal setup (API key). Please inform the administrator.";
       }
       return preparedKnowledgeBase.default.response;
@@ -94,7 +95,8 @@ const ChatbotComponent = () => {
     if (inputValue.trim() === "") return;
     const userMessageText = inputValue;
     const newUserMessage = { text: userMessageText, sender: "user" };
-    setMessages((prevMessages) => [...prevMessages, newUserMessage]);//... rest operator
+    setMessages((prevMessages) => [...prevMessages, newUserMessage]);
+    setInputValue("");
     if (!isOnline) {
       setMessages((prevMessages) => [
         ...prevMessages,
@@ -117,7 +119,7 @@ const ChatbotComponent = () => {
     }
     const aiResponseText = await getAIResponse(userMessageText);
     const botResponse = { text: aiResponseText, sender: "bot" };
-    setMessages((prevMessages) => [...prevMessages, botResponse]);//...rest operator
+    setMessages((prevMessages) => [...prevMessages, botResponse]);
   };
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -165,7 +167,7 @@ const ChatbotComponent = () => {
             )}
             {!isOnline && (
               <p className="chatbot-message offline-message">
-                :no_entry_sign:: You are currently offline. Please check your internet
+                🚫 You are currently offline. Please check your internet
                 connection.
               </p>
             )}
@@ -173,7 +175,7 @@ const ChatbotComponent = () => {
               {messages.map((message, index) => (
                 <div key={index} className={`message-row ${message.sender}`}>
                   {message.sender === "bot" && (
-                    <div className="avatar bot-avatar">:robot_face:</div>
+                    <div className="avatar bot-avatar">🤖</div>
                   )}
                   <p className={`${message.sender}-message`}>{message.text}</p>
                   {message.sender === "user" && (
@@ -183,7 +185,7 @@ const ChatbotComponent = () => {
               ))}
               {loading && (
                 <div className="message-row bot">
-                  <div className="avatar bot-avatar">:robot_face:</div>
+                  <div className="avatar bot-avatar">🤖</div>
                   <p className="bot-message loading-indicator">Typing...</p>
                 </div>
               )}
@@ -217,3 +219,12 @@ const ChatbotComponent = () => {
   );
 };
 export default ChatbotComponent;
+
+
+
+
+
+
+
+
+

@@ -326,9 +326,7 @@
   align-self: flex-start; /* Align bot messages to the left */
   border-bottom-left-radius: 5px;
 }
-
-
-/* Input Area */
+/*Input Area */
 .chatbot-input {
   display: flex;
   padding: 15px;
@@ -527,3 +525,47 @@
   background-color: #6C757D;
   cursor: not-allowed;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

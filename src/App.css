@@ -1,195 +1,32 @@
-#root {
-
-background-color: aqua;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-#navbar{
-  background-color:rgb(0, 128, 255);
-
-  color: white;
-  padding: 15px 20px;
+/* src/App.css */
+/* General Layout for the entire app */
+.main-layout {
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  background-color: #F4F7F6;
+  /* A very light grey background for the whole app */
+}
+
+/* Content Area for pages */
+.content {
+  background-color: #52d2d2;
+  /* Match header background */
+
+  flex-grow: 1;
+  /* This will make the content area take up all available space */
+  display: flex;
+  /* Use flex to center page content */
   justify-content: center;
-  gap:30px;
-  size: 500px; ;
-  
+  align-items: flex-start;
+  /* Align content to the top within the space */
+  padding: 20px;
 }
-#h{
-  text-align: center;
-  font-size: xx-large;
-  color:black;
-  
-}
-#hii{
-  text-align: start;
-}
-#p{
-  text-align:left;
-}
-#h2{
-  font-size:large;
-  color:rgb(97, 14, 97);
-}
-#me{
-  background-color: rgb(48, 214, 48)
 
-}
-#h1{
-  font-size: xx-large;
-  text-align: start;
-}
-#ul{
-  text-align: start;
-}
-#contain{
-  color: rgb(78, 112, 234);
-  font-size: xx-large;
-  text-align: center
-
-}
-#ok{
-  text-align: start;
-  font-size: xx-large;
-}
-#h4{
-  text-align: start;
-}
-#ol{
-  text-align: start;
-}
-#n{
-  color:white;
-}
-#id{
-  background-image:url("/Images/college.jpeg");
-
-}
-/* #div{
-  background-color:white;
-  margin-right: 150px;
-  margin-left: 150px;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  border-radius: 25px;
-} */
-#we{
-  background-color: white;
-}
-#pa{
-  text-align: calc(-150%,-150%);
-  color: rgb(240, 139, 240);
-  font-size: larger;
-}
-/* .hero-section {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  border-radius: 8px;
-}
-.hero-banner-image{
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-  filter: brightness(60%);
-  margin-top: 20px;
-  
-}
-.hero-overlay-text{
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  transform: translate(-50%,-50%);
-  color: white;
-  width: 90%;
-  text-align:right;
-} */
-#main{
-  text-align: right;
-  font-size:xx-large;
-  color: rgb(70, 164, 240)
-
-}
-#text{
-  text-align: center;
-}
-.main-header{
-  background-color:rgb(66, 66, 235);
-}
-#all{
-  color: violet;
-  font-size: medium;
-  text-align: center;
-}
-.btn{
-  text-align: center;
-}
-#hr{
-  font-size: xx-large;
-  text-align:start;
-}
-#aqua{
-  background-color:white;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  margin-left: 300px;
-  margin-right: 300px;
-  border-radius: 15px;
-
-
-}
-.img{
-  text-align: center;
-}
-#ad{
-  background-color: white;
-}
-.white{
-  background-color: white;
-  margin: 100px;
-}
-#page{
-  background-image: url('/Images/college-banner.jpg');
-  filter: brightness(30px);
-}
-#container{
-  margin-left: 20px;
-  margin-right: 20px;
-  
+/* Keep any general body/html resets or root styles here if they exist */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
